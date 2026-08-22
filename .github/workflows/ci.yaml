@@ -1,0 +1,39 @@
+---
+# CI baseline for saf-sie-bridge.
+#
+# The gate is `mvn verify`. CD, Helm, and deployment are deferred until the sourcer's internal
+# design (def/) is authored — see README's Status section.
+
+name: ci
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+permissions:
+    contents: read
+
+concurrency:
+    group: ci-${{ github.ref }}
+    cancel-in-progress: true
+
+jobs:
+    verify:
+        name: Verify
+        runs-on: ubuntu-latest
+        timeout-minutes: 15
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+
+            - name: Set up Java
+              uses: actions/setup-java@v4
+              with:
+                  distribution: temurin
+                  java-version: "21"
+                  cache: maven
+
+            - name: Build and test
+              run: mvn -B verify

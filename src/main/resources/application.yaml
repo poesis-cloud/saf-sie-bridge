@@ -1,0 +1,27 @@
+server:
+  port: ${SERVER_PORT:8080}
+
+spring:
+  application:
+    name: saf-sie-bridge
+  security:
+    oauth2:
+      client:
+        registration:
+          blackboard:
+            client-id: ${OAUTH2_CLIENT_ID:saf-sie-bridge}
+            client-secret: ${OAUTH2_CLIENT_SECRET:change-me}
+            authorization-grant-type: client_credentials
+            scope: blackboard.contribute
+        provider:
+          blackboard:
+            issuer-uri: ${OIDC_ISSUER_URI:http://localhost:9000/realms/sie}
+
+blackboard:
+  base-url: ${BLACKBOARD_BASE_URL:http://localhost:8081}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

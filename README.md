@@ -1,8 +1,10 @@
 # SAF SIE Bridge (`saf/saf-sie-bridge`)
 
-[![License: BUSL-1.1](https://img.shields.io/badge/license-BUSL--1.1-blue)](LICENSE)
+[![CI](https://github.com/poesis-cloud/saf-sie-bridge/actions/workflows/ci.yaml/badge.svg)](https://github.com/poesis-cloud/saf-sie-bridge/actions/workflows/ci.yaml)
+[![Version](https://img.shields.io/badge/version-0.0-lightgrey)](https://docs.poesis.cloud/milestones/)
 [![Java](https://img.shields.io/badge/Java-21-orange)](pom.xml)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5-6DB33F)](pom.xml)
+[![License: BUSL-1.1](https://img.shields.io/badge/license-BUSL--1.1-blue)](LICENSE)
 
 A **client sourcer** that turns SAF's harness-governed agentic-execution history — committed
 artifacts and append-only session logs in [`saf-agentic-workspace`](https://github.com/poesis-cloud/saf-agentic-workspace),

@@ -5,8 +5,8 @@
 ## 1. Project Overview
 
 `saf-sie-bridge` is a **client-side sourcer** that turns SAF's harness-governed agentic-execution
-history into GSM contributions posted to the Definition Blackboard Manager REST service. It is the
-SAF-family analog of `itip-definition-blackboard-repository-sourcer`, which sources a code
+history into GSM contributions posted to the SIS Blackboard Manager REST service. It is the
+SAF-family analog of `sis-code-sourcer`, which sources a code
 repository the same way.
 
 ## 2. Concept / Product Description
@@ -20,8 +20,8 @@ The bridge reads two SAF products as its source:
 
 and posts to one SIE target:
 
-- **`sie-definition-blackboard-manager`** — the same Blackboard protocol
-  `itip-definition-blackboard-repository-sourcer` implements: declare panels, then post
+- **`sis-blackboard-manager`** — the same Blackboard protocol
+  `sis-code-sourcer` implements: declare panels, then post
   confidence-bearing contributions (`confidence.score < 1.0` by construction).
 
 **Core invariant (inherited from the Blackboard):** a harness log entry or committed artifact is
@@ -31,10 +31,10 @@ workflow instance — qualifies as a contribution.
 
 ## 3. Tech Stack
 
-- `Java 21` + `Spring Boot 3.5` + `Maven` — matching `itip-definition-blackboard-repository-sourcer`,
+- `Java 21` + `Spring Boot 3.5` + `Maven` — matching `sis-code-sourcer`,
   the closest architectural precedent for a client sourcer against the same Blackboard protocol.
 - BUSL-1.1 — matching the SIE-ecosystem client sourcers (`sie-definition-manager`,
-  `itip-definition-blackboard-repository-sourcer`), not the Apache-2.0 SAF product family, since
+  `sis-code-sourcer`), not the Apache-2.0 SAF product family, since
   this repository's value is the bridge into SIE's commercial core.
 
 ## 4. Not Yet Decided

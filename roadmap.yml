@@ -1,0 +1,4 @@
+scope: product
+name: SAF SIE Bridge
+milestones:
+  - version: v1.0.0

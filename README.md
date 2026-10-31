@@ -10,9 +10,9 @@ A **client sourcer** that turns SAF's harness-governed agentic-execution history
 artifacts and append-only session logs in [`saf-agentic-workspace`](https://github.com/poesis-cloud/saf-agentic-workspace),
 produced under [`saf-agentic-organization`](https://github.com/poesis-cloud/saf-agentic-organization)'s
 schemas via [`saf-agentic-harness`](https://github.com/poesis-cloud/saf-agentic-harness) — into GSM
-contributions posted to the [Definition Blackboard Manager](https://github.com/poesis-cloud/sie-definition-blackboard-manager).
+contributions posted to the [SIS Blackboard Manager](https://github.com/poesis-cloud/sis-blackboard-manager).
 It is the concrete form of the integration [`saf`](https://github.com/poesis-cloud/saf) already
-declares: *"[SAF] complements ITIP and integrates with SIE."*
+declares: *"[SAF] complements OIP and integrates with SIE."*
 
 This document is **design-time** only; the internal component design (KnowledgeSource classes,
 GSM subject mapping, contribution slots) is not yet authored — see [Status](#status).
@@ -25,7 +25,7 @@ outside the framework's own execution. SIE is an **AI Context Platform**: it tur
 governed, typed, provenance-backed asset (observations + definitions + evaluations) other
 reasoning can build on. This bridge is the missing edge between the two: what an agentic team
 *actually did* — which steps ran, against which conditions, producing which artifacts — becomes
-observable, governed context inside SIE, the same way `itip-definition-blackboard-repository-sourcer`
+observable, governed context inside SIE, the same way `sis-code-sourcer`
 turns a code repository into contributions today.
 
 **Core invariant**, inherited from the Blackboard's own contract: it hosts only
@@ -39,9 +39,9 @@ deviation) — the identification, not the underlying fact.
 
 - **Source**: `saf-agentic-workspace` (committed artifacts + session logs), read against
   `saf-agentic-organization`'s workflow and artifact contracts.
-- **Target**: `sie-definition-blackboard-manager`, over its REST contribution API — the same
-  protocol `itip-definition-blackboard-repository-sourcer` implements. See the
-  `definition-blackboard-manager` skill for the client-side sourcer contract (panel declaration,
+- **Target**: `sis-blackboard-manager`, over its REST contribution API — the same
+  protocol `sis-code-sourcer` implements. See the
+  `blackboard-manager` skill for the client-side sourcer contract (panel declaration,
   KS-as-HTTP-poster, confidence/provenance envelopes).
 - **Out of scope for this bridge**: authoring or mutating SAF workspace state (read-only source),
   and anything inside the harness itself (methodology- and host-agnostic; this repository is a
@@ -52,7 +52,7 @@ deviation) — the identification, not the underlying fact.
 Scaffold only. Legal/contribution files, the build skeleton, and CI are in place; the sourcer's
 internal design (which GSM subjects, which panels/slots, the harness-log-to-contribution mapping)
 is **not yet decided** and belongs in `def/` once authored — follow the pattern in
-[`itip-definition-blackboard-repository-sourcer`](https://github.com/poesis-cloud/itip-definition-blackboard-repository-sourcer/blob/main/def/components.puml).
+[`sis-code-sourcer`](https://github.com/poesis-cloud/sis-code-sourcer/blob/main/def/components.puml).
 Deployment (`ops/`, Helm, CD) is deferred to that same point: shipping a chart before there is a
 container to run would be fabricated content, not initialization.
 

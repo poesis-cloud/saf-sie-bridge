@@ -61,3 +61,10 @@ container to run would be fabricated content, not initialization.
 ```bash
 mvn verify
 ```
+
+<!-- roadmap:start -->
+## Roadmap
+
+![Roadmap](docs/roadmap.svg)
+
+<!-- roadmap:end -->
